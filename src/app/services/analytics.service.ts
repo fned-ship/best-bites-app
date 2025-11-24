@@ -112,22 +112,5 @@ export class AnalyticsService {
       }))
     );
   }
-
-  /**
-   * Get summary statistics (Admin only)
-   * Helper method to get overall stats
-   * @param adminId - The admin user ID
-   * @returns Observable with standardized response containing summary stats
-   */
-  getSummaryStats(adminId: string): Observable<ApiResponse<any>> {
-
-
-    return of({
-      status: 200,
-      data: {
-        message: 'Use specific analytics methods for detailed data'
-      },
-      message: 'Summary stats placeholder'
-    });
-  }
+  
 }

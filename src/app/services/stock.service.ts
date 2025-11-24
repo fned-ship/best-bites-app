@@ -9,13 +9,13 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class StockService {
-  private apiUrl =environment.serverURL; // Change this to your API URL
+  private apiUrl =environment.serverURL;
 
   constructor(private http: HttpClient) {}
 
   /**
    * Get all stocks
-   * @returns Observable with standardized response containing array of stocks
+   * @returns array of stocks
    */
   getStocks(): Observable<ApiResponse<Stock[]>> {
     return this.http.get<any>(`${this.apiUrl}/stocks`).pipe(

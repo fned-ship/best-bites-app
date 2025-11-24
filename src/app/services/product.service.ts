@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = environment.serverURL; // Change this to your API URL
+  private apiUrl = environment.serverURL;
 
   constructor(private http: HttpClient) {}
 
