@@ -6,10 +6,11 @@ import { AnalyticsService } from '../../services/analytics.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AdminDashboard } from '../../components/admin-dashboard/admin-dashboard';
 
 @Component({
   selector: 'app-testing',
-  imports: [CommonModule,RouterModule,ReactiveFormsModule],
+  imports: [CommonModule,RouterModule,ReactiveFormsModule,AdminDashboard],
   templateUrl: './testing.html',
   styleUrl: './testing.css',
 })
@@ -32,20 +33,20 @@ export class Testing implements OnInit {
     });
 
     // Example 2: Place an order
-    // this.orderService.placeOrder(
-    //   '69233c93b1886a1c99e798cc',
-    //   [
-    //     { productId: '69233ff0b1886a1c99e798e8', quantity: 1, specialInstructions: 'No onions' }
-    //   ],
-    //   '123 Main St, City',
-    //   'Ring doorbell'
-    // ).subscribe(response => {
-    //   if (response.status === 201) {
-    //     console.log('Order placed:', response.data);
-    //   } else {
-    //     console.error('Error:', response.error);
-    //   }
-    // });
+    this.orderService.placeOrder(
+      '69233c93b1886a1c99e798cc',
+      [
+        { productId: '69235791acdb6c6a6243c686', quantity: 14, specialInstructions: 'No onions' }
+      ],
+      '123 Main St, City',
+      'Ring doorbell'
+    ).subscribe(response => {
+      if (response.status === 201) {
+        console.log('Order placed:', response.data);
+      } else {
+        console.error('Error:', response.error);
+      }
+    });
 
     // Example 3: Add a new stock item
     // this.stockService.addStock('69233c93b1886a1c99e798cc', {
