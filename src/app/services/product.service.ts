@@ -52,27 +52,49 @@ export class ProductService {
   }
 
   /**
-   * Add a new product (Admin only)
+   * Add a new product (Admin only) - WITH IMAGE UPLOAD
    * @param adminId - The admin user ID
    * @param productData - Product details
+   * @param imageFile - Optional image file to upload
    * @returns Observable with standardized response
    */
-  addProduct(adminId: string, productData: Partial<Product>): Observable<ApiResponse<Product>> {
-    return this.http.post<any>(`${this.apiUrl}/products`, {
-      adminId,
-      ...productData
-    }).pipe(
-      map(response => ({
-        status: 201,
-        data: response.product,
-        message: response.message || 'Product added successfully'
-      })),
-      catchError(error => of({
-        status: error.status || 500,
-        error: error.error?.error || 'Failed to add product'
-      }))
-    );
-  }
+    addProduct(adminId: string, productData: Partial<Product>, imageFile?: File): Observable<ApiResponse<Product>> {
+
+        const formData = new FormData();
+        
+
+        formData.append('adminId', adminId);
+        
+
+        if (productData.name) formData.append('name', productData.name);
+        if (productData.description) formData.append('description', productData.description);
+        if (productData.category) formData.append('category', productData.category);
+        if (productData.price !== undefined) formData.append('price', productData.price.toString());
+        if (productData.isAvailable !== undefined) formData.append('isAvailable', productData.isAvailable.toString());
+        
+
+        if (productData.ingredients) {
+        formData.append('ingredients', JSON.stringify(productData.ingredients));
+        }
+        
+
+        if (imageFile) {
+        formData.append('image', imageFile, imageFile.name);
+        }
+        
+
+        return this.http.post<any>(`${this.apiUrl}/products`, formData).pipe(
+        map(response => ({
+            status: 201,
+            data: response.product,
+            message: response.message || 'Product added successfully'
+        })),
+        catchError(error => of({
+            status: error.status || 500,
+            error: error.error?.error || 'Failed to add product'
+        }))
+        );
+    }
 
   /**
    * Update an existing product (Admin only)

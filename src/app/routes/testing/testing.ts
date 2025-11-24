@@ -64,13 +64,13 @@ export class Testing implements OnInit {
     // });
 
     // Example 4: Get daily income
-    // this.analyticsService.getDailyIncome('69233c93b1886a1c99e798cc').subscribe(response => {
-    //   if (response.status === 200) {
-    //     console.log('Daily income:', response.data);
-    //   } else {
-    //     console.error('Error:', response.error);
-    //   }
-    // });
+    this.analyticsService.getDailyIncome('69233c93b1886a1c99e798cc').subscribe(response => {
+      if (response.status === 200) {
+        console.log('Daily income:', response.data);
+      } else {
+        console.error('Error:', response.error);
+      }
+    });
 
     // Example 5: Update product
 
@@ -86,32 +86,5 @@ export class Testing implements OnInit {
     //   }
     // });
 
-    //     this.productService.addProduct(
-    //   '69233c93b1886a1c99e798cc', // Replace with your admin ID
-    //   {
-    //     name: 'Margherita Pizza',
-    //     description: 'Classic Italian pizza with tomatoes, mozzarella, and basil',
-    //     category: 'main_course',
-    //     price: 12.99,
-    //     image: '/images/margherita-pizza.jpg',
-    //     isAvailable: true,
-    //     ingredients: [
-    //       {
-    //         stock: '69233d1ab1886a1c99e798d0', // Replace with your tomato stock ID
-    //         quantity: 0.2  // 200 grams of tomatoes per pizza
-    //       },
-    //       {
-    //         stock: '69233d36b1886a1c99e798d8', // Replace with your cheese stock ID
-    //         quantity: 0.15 // 150 grams of cheese per pizza
-    //       }
-    //     ]
-    //   }
-    // ).subscribe(response => {
-    //   console.log('='.repeat(60));
-    //   console.log('RESPONSE RECEIVED:');
-    //   console.log('='.repeat(60));
-    //   console.log('Status:', response.status);
-    //   console.log('Message:', response.message);
-    // });
   }
 }
