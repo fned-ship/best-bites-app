@@ -1,0 +1,47 @@
+main{
+    width: 100%;
+    min-width: 1200px;
+    height: 100%;
+}
+header{
+    height: 50%;
+    background-color: #FD9D17;
+    color: white;
+    font-family: "Ms Madi";
+    font-size: 25px;
+}
+div{
+    display: flex;
+}
+
+header>div, header>h2{
+    gap: 30px;
+    max-width: fit-content;
+    margin: auto;
+}
+header>div{
+    align-items: center;
+    font-family: "Creepster";
+    font-size: 35px;
+}
+
+#sidebar{
+    width: 200px;
+    flex-direction: column;
+    align-items: center;
+    background-color:#e6c69b ;
+    padding-top: 20px;
+    gap: 60px;
+}
+#sidebar>div{
+    flex-direction: column;
+    max-width: fit-content;
+}
+#sidebar>div>img{
+    transition: width 2s;
+}
+
+#sidebar>div:hover>img{
+    width: 90px;
+    height: 90px;
+}

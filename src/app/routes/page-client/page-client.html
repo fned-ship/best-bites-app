@@ -1,0 +1,27 @@
+<main>
+    <header>
+        <div>
+        <h1>Best Bites</h1>
+        <img src="pics/burger.png" height="87px" width="87px"/>
+    </div>
+        <h2>Best flavor, in every Bite</h2>
+    </header>
+    <div id="rest">
+        <div id="sidebar">
+            <div>
+            <img src="pics/menu.png" height="70px" width="70px" (click)="lastbtn=1"/>
+            <h2>Menu</h2>
+            </div>
+            <div>
+            <img src="pics/cart.png" height="70px" width="70px" (click)="lastbtn=2"/>
+            <h2>Panier</h2>
+            </div>
+            <div>
+            <img src="pics/history.png" height="70px" width="70px" (click)="lastbtn=3"/>
+            <h2>history</h2>
+            </div>
+        </div>
+        <compmenu *ngIf="lastbtn==1"></compmenu>
+        <comppanier *ngIf="lastbtn==2"></comppanier>
+    </div>
+</main>

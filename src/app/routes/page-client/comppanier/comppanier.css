@@ -1,0 +1,35 @@
+main{
+    padding-top: 30px;
+}
+
+table{
+    width: 1000px;
+    font-family: Arial;
+    text-align: left;
+    table-layout: fixed;
+    word-wrap: break-word;
+    margin-bottom: 30px;
+}
+th{
+    font-size: 26px;
+    padding-left: 20px;
+    font-family: Garamond;
+    border-right: 3px solid;
+}
+th:last-child{
+    border: 0px solid;
+}
+td{
+    font-size: 20px;
+    padding-left: 20px;
+}
+div{
+    padding-left: 20px;
+    display: flex;
+}
+h1{
+    width: 660px;
+}
+h2{
+    color: rgb(76, 75, 75);
+}
