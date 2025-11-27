@@ -1,0 +1,34 @@
+<div class="container"   >
+    <div class="flex-row-space-between header" >
+        <p class="lakki-reddy-regular" style="font-size: 2rem;" >best bites</p>
+        <p class="knewave-regular" style="font-size: 2rem;" >deliverer space</p>
+    </div>
+    <div *ngIf="chatId===''" class="flex-row-start" style="flex-wrap: wrap;padding:40px;gap:40px;">
+        <div *ngFor="let order of myOrders; let i = index" class="order-container flex-column" >
+            <p class="lakki-reddy-regular" >{{order?.orderNumber}}</p>
+            <p class="kaisei-opti-regular">{{order?.customer.firstName}} {{order?.customer.lastName}}</p>
+            <p class="kaisei-opti-regular">{{order?.customerNotes}}</p>
+            <p class="kaisei-opti-regular">{{order?.deliveryAddress}}</p>
+            <p class="kaisei-opti-regular">{{order?.customer.number}}</p>
+            <div class="flex-row" >
+                <button style="background-color: #285613;" (click)="markAsDelivered(order._id)" >delivered</button>
+                <button style="background-color: #07085b;" (click)="openChat(order.chatId)" >open chat</button>
+            </div>
+            <button style="background-color: #b41818;" (click)="releaseOrder(order._id)" >release</button>
+        </div>
+    </div>
+    <div *ngIf="chatId===''" class="flex-row-start" style="flex-wrap: wrap;padding:40px;gap:40px;">
+        <div *ngFor="let order of availableOrders; let i = index" class="order-container flex-column" >
+            <p class="lakki-reddy-regular" >{{order?.orderNumber}}</p>
+            <p class="kaisei-opti-regular">{{order?.customer.firstName}} {{order?.customer.lastName}}</p>
+            <p class="kaisei-opti-regular">{{order?.customerNotes}}</p>
+            <p class="kaisei-opti-regular">{{order?.deliveryAddress}}</p>
+            <p class="kaisei-opti-regular">{{order?.customer.number}}</p>
+            <button (click)="takeOrder(order._id)" >take order</button>
+        </div>
+    </div>
+    <div *ngIf="chatId!==''"  class="flex-column" style="position: relative;" >
+        <app-chat-box style="width:80%;height:calc(100vh - 100px);" [chatId]="chatId" [userId]="delivererId"></app-chat-box>
+        <button style="position:absolute;top:0;left:40px;" (click)="return()" ><img style="width:50px;" src="images/return.png" /></button>
+    </div>
+</div>

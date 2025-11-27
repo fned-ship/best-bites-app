@@ -7,10 +7,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AdminDashboard } from '../../components/admin-dashboard/admin-dashboard';
+import { ChatBox } from '../../components/chat-box/chat-box';
 
 @Component({
   selector: 'app-testing',
-  imports: [CommonModule,RouterModule,ReactiveFormsModule,AdminDashboard],
+  imports: [CommonModule,RouterModule,ReactiveFormsModule,AdminDashboard,ChatBox],
   templateUrl: './testing.html',
   styleUrl: './testing.css',
 })

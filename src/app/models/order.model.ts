@@ -9,6 +9,7 @@ export interface Order {
   orderNumber: string;
   customer: string; 
   items: OrderItem[];
+  deliverer?:string ;
   status: string;
   deliveryAddress: string;
   customerNotes?: string;
