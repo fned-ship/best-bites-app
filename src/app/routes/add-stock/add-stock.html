@@ -1,0 +1,63 @@
+<h1>Add Ingredient</h1>
+<form [formGroup]="stockForm" (ngSubmit)="onSubmit()" class="form">
+      <div class="input-group">
+        <input
+          type="text"
+          id="name"
+          placeholder="name of ingredient"
+          formControlName="name"
+          required
+        />
+      </div>
+       <div class="input-group">
+        <input
+          type="number"
+          min="0"
+          id="quantity"
+          placeholder= "quantity"
+          formControlName="quantity"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <h5>Unit</h5>
+        <select
+          id="Unit"
+          formControlName="unit"
+          required
+        >
+        <option *ngFor="let unit of ['kg', 'g', 'l', 'ml', 'pieces', 'units']" [value]="unit" >  {{unit}}</option>
+      </select>
+      </div>
+      <div class="input-group">
+        <input
+          type="number"
+          min="0"
+          id="costPerUnit"
+          placeholder= "cost per unit"
+          formControlName="costPerUnit"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <input
+          type="number"
+          min="0"
+          id="minThreshold"
+          placeholder= "minimum Threshold"
+          formControlName="minThreshold"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <h5>category</h5>
+        <select
+          id="category"
+          formControlName="category"
+          required
+        >
+        <option *ngFor="let cat of ['vegetables', 'meat', 'dairy', 'spices', 'beverages', 'other']" [value]="cat" >  {{cat}}</option>
+      </select>
+      </div>
+      <button type="submit" class="sign-up-button">Add Ingredient</button>
+</form>

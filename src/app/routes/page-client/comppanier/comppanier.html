@@ -7,14 +7,20 @@
   </tr>
 </table>
 <table>
-  <tr>
-    <td>Pepproni Pizza </td>
-    <td>11,300</td>
-    <td>2</td>
+  <tr *ngFor="let p of get()">
+    <td >
+      {{p.name}}
+    </td>
+    <td >
+      {{p.price}}
+    </td>
+    <td >
+      {{p.q}}
+    </td>
   </tr>
 </table>
-<div>
+<div style="width: 60vw; justify-content: space-between;">
     <h1>Total:</h1>
-    <h2>22.600 Dt</h2>
+    <h2>{{total.toFixed(2)}} Dt</h2>
 </div>
 </main>

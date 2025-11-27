@@ -1,0 +1,92 @@
+<h1>Add product</h1>
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()" id="form">
+      <div class="input-group">
+        <input
+          type="text"
+          id="name"
+          placeholder="name of ingredient"
+          formControlName="name"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <input
+          type="text"
+          id="description"
+          placeholder="description"
+          formControlName="description"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <h5>category</h5>
+        <select
+          id="category"
+          formControlName="category"
+          required
+        >
+        <option *ngFor="let cat of  ['pizza', 'burger', 'dessert', 'drink', 'taco','salad']" [value]="cat" >  {{cat}}</option>
+      </select>
+      </div>
+      <div class="input-group">
+        <input
+          type="number"
+          min="0"
+          id="price"
+          placeholder= "price"
+          formControlName="price"
+          required
+        />
+      </div>
+      
+        <div class="input-group">
+        <input
+          type="number"
+          min="1"
+          id="ningredients"
+          placeholder="Number of Ingredients"
+          [(ngModel)]="n" [ngModelOptions]="{standalone: true}"
+          required
+        />
+
+      </div>
+
+      <div class="input-group" *ngFor="let f of [].constructor(n);let i=index">
+        <h5>Ingredient {{i+1}}:</h5>
+
+        <select class="typeofIngredient">
+          <option *ngFor="let s of  stock" [value]="s._id" >  {{s.name}} </option>
+        </select>
+         <input
+         class="quantityofIngredient"
+          type="number"
+          min="0"
+          id="quantity"
+          placeholder= "quantity"
+          required
+          
+        />
+
+      </div>
+      <br/>
+      <div class="input-file">
+        <label for="inputTag">
+          Select profile picture <br />
+          <img src="svg/camera.svg" alt="camera" />
+          <input
+            id="inputTag"
+            accept="image/*"
+            type="file"
+            (change)="handleFileChange($event)"
+          />
+          <br />
+          <span
+            id="imageName"
+            [style.color]="ImageNameColor"
+            style="word-break: break-word"
+            >{{ imageName }}</span
+          >
+        </label>
+      </div>
+      <button type="submit" class="sign-up-button">Add Product</button>
+</form>

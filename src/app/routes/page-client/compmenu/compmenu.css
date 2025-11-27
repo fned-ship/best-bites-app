@@ -5,41 +5,41 @@ h1{
     color: #FD9D17;
     font-family: 'Irish Grover';
 }
-#items{
+.items{
     margin-left: 20px;
-    width: calc(100% - 200px);
+    width: 80vw;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 20px;
 }
-#item{
+.item{
     background-color: gray;
     padding-bottom: 10px ;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-#item>h3{
+.item>h3{
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     margin-top: -4px;
     padding-left: 10px;
 }
-#item>img{
+.item>img{
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
-#item:hover>img{
-    transition: width 2s,height 2s;
+.item:hover>img{
+    transition: width 1s,height 1s;
     width: 220px;
     height: 220px;
 }
-#item>#name{
+.item>#name{
     font-size: 20px;
     margin-top: -20px;
 }
-#item>div{
+.item>div{
     margin-left: 10px;
     margin-right: 10px ;
     margin-top:-20px;

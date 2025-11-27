@@ -3,12 +3,12 @@ main{
 }
 
 table{
-    width: 1000px;
+    width: 80vw;
     font-family: Arial;
     text-align: left;
     table-layout: fixed;
     word-wrap: break-word;
-    margin-bottom: 30px;
+    padding-bottom: 30px;
 }
 th{
     font-size: 26px;
@@ -26,9 +26,6 @@ td{
 div{
     padding-left: 20px;
     display: flex;
-}
-h1{
-    width: 660px;
 }
 h2{
     color: rgb(76, 75, 75);

@@ -1,59 +1,15 @@
 <main>
     <h1>Nos Pizza:</h1>
-    <div id="items">
-        <div id="item">
-            <img src="pics/peppizza.jpg" height="200px" width="200px"/>
-            <h3 id="name">Pepproni Pizza</h3>
-            <h3>Prix: 11,300 Dt</h3>
-            <h3>Rating: 4.3 &starf; (23 reviews)</h3>
+    <div class="items">
+        <div *ngFor="let prod of products" class="item">
+            <img [src]="serverUrl+prod.image" height="200px" width="200px"/>
+            <h3 id="name">{{prod.name}}</h3>
+            <h3>{{prod.price}}</h3>
+            <h3>Rating: {{prod.rating.average}} &starf; ( {{prod.rating.count}} reviews)</h3>
             <div>
-                <button id="sub">-</button>
-                <h5>0</h5>
-                <button id="add">+</button>
-            </div>
-        </div>
-        <div id="item">
-            <img src="pics/peppizza.jpg" height="200px" width="200px"/>
-            <h3 id="name">Pepproni Pizza</h3>
-            <h3>Prix: 11,300 Dt</h3>
-            <h3>Rating: 4.3 &starf; (23 reviews)</h3>
-            <div>
-                <button id="sub">-</button>
-                <h5>0</h5>
-                <button id="add">+</button>
-            </div>
-        </div>
-        <div id="item">
-            <img src="pics/peppizza.jpg" height="200px" width="200px"/>
-            <h3 id="name">Pepproni Pizza</h3>
-            <h3>Prix: 11,300 Dt</h3>
-            <h3>Rating: 4.3 &starf; (23 reviews)</h3>
-            <div>
-                <button id="sub">-</button>
-                <h5>0</h5>
-                <button id="add">+</button>
-            </div>
-        </div>
-        <div id="item">
-            <img src="pics/peppizza.jpg" height="200px" width="200px"/>
-            <h3 id="name">Pepproni Pizza</h3>
-            <h3>Prix: 11,300 Dt</h3>
-            <h3>Rating: 4.3 &starf; (23 reviews)</h3>
-            <div>
-                <button id="sub">-</button>
-                <h5>0</h5>
-                <button id="add">+</button>
-            </div>
-        </div>
-        <div id="item">
-            <img src="pics/peppizza.jpg" height="200px" width="200px"/>
-            <h3 id="name">Pepproni Pizza</h3>
-            <h3>Prix: 11,300 Dt</h3>
-            <h3>Rating: 4.3 &starf; (23 reviews)</h3>
-            <div>
-                <button id="sub">-</button>
-                <h5>0</h5>
-                <button id="add">+</button>
+                <button id="sub" (click)="remove(prod._id, prod.ingredients)">-</button>
+                <h5>{{ getnumber (prod._id)  }}</h5>
+                <button id="add" (click)="add( prod )">+</button>
             </div>
         </div>
     </div>

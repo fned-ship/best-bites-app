@@ -38,7 +38,7 @@ export class Signup implements OnInit {
       password: ['', Validators.required],
       address: ['', Validators.required],
       number: ['', Validators.required],
-      role: ['client'], // ✅ replaced user:"client" with role:"employee"
+      role: ['client'],
       activated: [false]
     });
 
