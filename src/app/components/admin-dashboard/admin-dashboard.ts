@@ -204,6 +204,7 @@ export class AdminDashboard implements OnInit {
       this.loadingProductIncome = false;
 
       if (response.status === 200 && response.data) {
+        // console.log(response.data)
         this.totalIncome = response.data.totalIncome;
         const products = response.data.productBreakdown;
         

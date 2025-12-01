@@ -4,6 +4,7 @@ import { Observable, catchError, map, of } from 'rxjs';
 import { ApiResponse } from '../models/apiRes.model';
 import { Order} from '../models/order.model';
 import { environment } from '../../environments/environment';
+import { ProductOrderBreakdown } from '../models/analytics.model';
 
 
 @Injectable({
@@ -148,4 +149,58 @@ export class OrderService {
       }))
     );
   }
+
+
+
+
+  // new ones ( rakez sahbi )
+  getCustomerRecievedOrders(customerId: string): Observable<ApiResponse<Order[]>> {
+    return this.http.get<any>(`${this.apiUrl}/orders/recieved/${customerId}`).pipe(
+      map(response => ({
+        status: 200,
+        data: response.orders,
+        message: 'Orders fetched successfully'
+      })),
+      catchError(error => of({
+        status: error.status || 500,
+        error: error.error?.error || 'Failed to fetch orders'
+      }))
+    );
+  }
+
+  getCustomerNonRecievedOrders(customerId: string): Observable<ApiResponse<Order[]>> {
+    return this.http.get<any>(`${this.apiUrl}/orders/non-recieved/${customerId}`).pipe(
+      map(response => ({
+        status: 200,
+        data: response.orders,
+        message: 'Orders fetched successfully'
+      })),
+      catchError(error => of({
+        status: error.status || 500,
+        error: error.error?.error || 'Failed to fetch orders'
+      }))
+    );
+  }
+
+
+   getCustomerMostOrderedProduct( // par quantité
+      customerId: string)
+      : Observable<ApiResponse<{totalOrders: number; totalProductQuantity: number; productPercentages: ProductOrderBreakdown[] }>> {
+  
+      return this.http.get<any>(`${this.apiUrl}/orders/most-ordered/${customerId}`).pipe(
+        map(response => ({
+          status: 200,
+          data: {
+            totalOrders: response.totalOrders,
+            totalProductQuantity: response.totalProductQuantity,
+            productPercentages: response.productPercentages
+          },
+          message: 'Product order percentage fetched successfully'
+        })),
+        catchError(error => of({
+          status: error.status || 500,
+          error: error.error?.error || 'Failed to fetch product order percentage'
+        }))
+      );
+    }
 }

@@ -24,30 +24,59 @@ export class Testing implements OnInit {
   ) {}
 
   ngOnInit() {
+
+    // this.orderService.getCustomerMostOrderedProduct(
+    //   '69233c93b1886a1c99e798cc').subscribe(response => {
+    //   if (response.status === 200) {
+    //     console.log('most ordered:', response.data);
+    //   } else {
+    //     console.error('Error:', response.error);
+    //   }
+    // });
+
+    // this.orderService.getCustomerNonRecievedOrders(
+    //   '69233c93b1886a1c99e798cc').subscribe(response => {
+    //   if (response.status === 200) {
+    //     console.log('non recieved:', response.data);
+    //   } else {
+    //     console.error('Error:', response.error);
+    //   }
+    // });
+
+    // this.orderService.getCustomerRecievedOrders(
+    //   '69233c93b1886a1c99e798cc').subscribe(response => {
+    //   if (response.status === 200) {
+    //     console.log('recieved:', response.data);
+    //   } else {
+    //     console.error('Error:', response.error);
+    //   }
+    // });
+
+
     // Example 1: Get all products
-    this.productService.getProducts().subscribe(response => {
-      if (response.status === 200) {
-        console.log('Products:', response.data);
-      } else {
-        console.error('Error:', response.error);
-      }
-    });
+    // this.productService.getProducts().subscribe(response => {
+    //   if (response.status === 200) {
+    //     console.log('Products:', response.data);
+    //   } else {
+    //     console.error('Error:', response.error);
+    //   }
+    // });
 
     // Example 2: Place an order
-    this.orderService.placeOrder(
-      '69233c93b1886a1c99e798cc',
-      [
-        { productId: '69235791acdb6c6a6243c686', quantity: 14, specialInstructions: 'No onions' }
-      ],
-      '123 Main St, City',
-      'Ring doorbell'
-    ).subscribe(response => {
-      if (response.status === 201) {
-        console.log('Order placed:', response.data);
-      } else {
-        console.error('Error:', response.error);
-      }
-    });
+    // this.orderService.placeOrder(
+    //   '69233c93b1886a1c99e798cc',
+    //   [
+    //     { productId: '69235791acdb6c6a6243c686', quantity: 14, specialInstructions: 'No onions' }
+    //   ],
+    //   '123 Main St, City',
+    //   'Ring doorbell'
+    // ).subscribe(response => {
+    //   if (response.status === 201) {
+    //     console.log('Order placed:', response.data);
+    //   } else {
+    //     console.error('Error:', response.error);
+    //   }
+    // });
 
     // Example 3: Add a new stock item
     // this.stockService.addStock('69233c93b1886a1c99e798cc', {
@@ -66,13 +95,13 @@ export class Testing implements OnInit {
     // });
 
     // Example 4: Get daily income
-    this.analyticsService.getDailyIncome('69233c93b1886a1c99e798cc').subscribe(response => {
-      if (response.status === 200) {
-        console.log('Daily income:', response.data);
-      } else {
-        console.error('Error:', response.error);
-      }
-    });
+    // this.analyticsService.getDailyIncome('69233c93b1886a1c99e798cc').subscribe(response => {
+    //   if (response.status === 200) {
+    //     console.log('Daily income:', response.data);
+    //   } else {
+    //     console.error('Error:', response.error);
+    //   }
+    // });
 
     // Example 5: Update product
 
