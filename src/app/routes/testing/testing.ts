@@ -25,6 +25,35 @@ export class Testing implements OnInit {
   ) {}
 
   ngOnInit() {
+
+    // this.orderService.getCustomerMostOrderedProduct(
+    //   '69233c93b1886a1c99e798cc').subscribe(response => {
+    //   if (response.status === 200) {
+    //     console.log('most ordered:', response.data);
+    //   } else {
+    //     console.error('Error:', response.error);
+    //   }
+    // });
+
+    // this.orderService.getCustomerNonRecievedOrders(
+    //   '69233c93b1886a1c99e798cc').subscribe(response => {
+    //   if (response.status === 200) {
+    //     console.log('non recieved:', response.data);
+    //   } else {
+    //     console.error('Error:', response.error);
+    //   }
+    // });
+
+    // this.orderService.getCustomerRecievedOrders(
+    //   '69233c93b1886a1c99e798cc').subscribe(response => {
+    //   if (response.status === 200) {
+    //     console.log('recieved:', response.data);
+    //   } else {
+    //     console.error('Error:', response.error);
+    //   }
+    // });
+
+
     // Example 1: Get all products
     // this.productService.getProducts().subscribe(response => {
     //   if (response.status === 200) {
