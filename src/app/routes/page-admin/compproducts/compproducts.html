@@ -1,0 +1,25 @@
+<main>
+    <div id="head">
+    <input [(ngModel)]="searchterm" type="text" placeholder="Search for product by name...">
+    <img src="images/SearchIcon.png" width="20px" height="20px" id="searchicon">
+    <h3>Category:</h3>
+    <select [(ngModel)]="category">
+        <option value="">Any</option>
+        <option *ngFor="let cat of  ['pizza', 'burger', 'dessert', 'drink', 'taco','salad']" [value]="cat" >  {{cat}}</option>
+    </select>
+    <button id="addprod">Add Product</button>
+    </div>
+    <div class="items">
+        <div *ngFor="let prod of filter();index as i" class="item" >
+            <img [src]="serverUrl+prod.image" height="200px" width="200px"/>
+            <h3 id="name">{{prod.name}}</h3>
+            <h3>{{prod.price}} Dt</h3>
+            <h3>Rating: {{prod.rating.average}} &starf; ( {{prod.rating.count}} reviews)</h3>
+            <div>
+                <button id="delete" (click)="remove(prod)">Delete</button>
+                <button id="edit" (click)="edit( prod )">Edit</button>
+            </div>
+        </div>
+
+    </div>
+</main>

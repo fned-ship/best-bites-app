@@ -57,7 +57,7 @@ export class Compmenu implements OnInit{
     }else{
       Compmenu.panier[p._id]=[p,1]
     }}else{
-      alert ("can't order more of this product \n Inssuficient Stock")
+      alert ("can't order more of this product \nInssuficient Stock")
     }
   }
   getnumber(id:string):number{
@@ -77,5 +77,15 @@ export class Compmenu implements OnInit{
       this.stock[p.stock._id] -=p.quantity;
     }
     return true
+  }
+
+  sort(cat:string){
+    let temp=[]
+    for(let prod of this.products){
+      if(prod.category==cat){
+        temp.push(prod)
+      }
+    }
+    return temp
   }
 }

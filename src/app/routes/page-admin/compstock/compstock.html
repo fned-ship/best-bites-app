@@ -1,0 +1,28 @@
+<main>
+<table>
+  <tr>
+    <th>name</th>
+    <th>Quantité</th>
+    <th>Minimum Threshold</th>
+    <button id="Addingredient">Add ingredient</button>
+  </tr>
+</table>
+<table>
+  <tr *ngFor="let p of panier">
+    <td >
+      {{p.name}}
+    </td>
+    <td >
+      {{p.quantity}}
+    </td>
+    <td >
+      {{p.minThreshold}}
+    </td>
+    <button id="add{{p._id}}" class="add" (click)="add(p)" >Add</button>
+    <div id="adding{{p._id}}" class="adding" style="display: none;" >
+    <input id="q{{p._id}}" type="number">
+    <button (click)="adding(p)">&#10004;</button>
+    </div>
+  </tr>
+</table>
+</main>

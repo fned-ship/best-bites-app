@@ -6,8 +6,8 @@
     <th>Quantité</th>
   </tr>
 </table>
-<table>
-  <tr *ngFor="let p of get()">
+<table *ngFor="let p of panier; index as i">
+  <tr >
     <td >
       {{p.name}}
     </td>
@@ -18,9 +18,32 @@
       {{p.q}}
     </td>
   </tr>
+  <input class="comment" placeholder="add specific comment..." [(ngModel)]="specialInstructions[i]">
 </table>
 <div style="width: 60vw; justify-content: space-between;">
     <h1>Total:</h1>
-    <h2>{{total.toFixed(2)}} Dt</h2>
+    <h1>{{total.toFixed(2)}} Dt</h1>
 </div>
+<div class="inputgroup">
+    <h2>Your form of payment</h2>
+  <input type="radio" id="cash" name="payment" value="cash" [(ngModel)]="formofpayment" >
+  <label for="cash">Cash</label>
+  <input type="radio" id="card" name="payment" value="card" [(ngModel)]="formofpayment" required>
+  <label for="card">Card</label></div>
+<form [formGroup]="infoForm" (ngSubmit)="onSubmit()" class="form">
+  <div class="inputgroup" *ngIf="formofpayment=='card'" >
+  <h2>Enter your credit card Information:</h2>
+  <input type="number" min="0"  placeholder="XXXX-XXXX" formControlName="card" class="info">
+  </div>
+  <div class="inputgroup">
+  <h2>Adress for Delivery:</h2>
+  <input type="text" formControlName="address" class="info" required>
+  </div>
+  <div class="inputgroup">
+  <input type="text" formControlName="comment" placeholder="add general comment" class="comment"></div>
+  <h3>{{msg}}</h3>
+  <button type="submit">Confirm order</button>
+
+</form>
+
 </main>

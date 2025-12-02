@@ -1,0 +1,26 @@
+<div class="container" >
+    <div class="flex-row-space-between header" >
+        <p class="lakki-reddy-regular" style="font-size: 2rem;" >best bites</p>
+        <p class="knewave-regular" style="font-size: 2rem;" >chef space</p>
+    </div>
+    <div *ngIf="selectedOrder==-1" class="flex-row-start" style="flex-wrap: wrap;padding:40px;gap:40px;">
+        <div *ngFor="let order of confirmedOrders; let i = index" class="order-container flex-column" >
+            <p class="lakki-reddy-regular" >{{order?.orderNumber}}</p>
+            <p class="kaisei-opti-regular">{{order?.customerNotes}}</p>
+            <button (click)="viewItems(i)" >view items</button>
+        </div>
+    </div>
+    <div *ngIf="selectedOrder>-1" class="flex-row-start" style="flex-wrap: wrap;padding:40px;gap:40px;">
+        <div *ngFor="let item of confirmedOrders[selectedOrder]?.items; let i = index" class="item-container flex-column" >
+            <img [src]="serverUrl+item?.product?.image"  />
+            <div class="flex-column item-details" >
+                <p class="lakki-reddy-regular" >{{item.product.name}} * {{item.quantity}}</p>
+                <p class="lakki-reddy-regular" >{{item.specialInstructions}}</p>
+            </div>
+        </div>
+    </div>
+    <div  *ngIf="selectedOrder>-1" class="flex-row btns" >
+        <button class="lakki-reddy-regular" (click)="markReady()" >mark as ready</button>
+        <button (click)="return()" ><img src="images/return.png" /></button>
+    </div>
+</div>

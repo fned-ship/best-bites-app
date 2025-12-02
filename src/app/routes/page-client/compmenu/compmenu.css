@@ -6,15 +6,15 @@ h1{
     font-family: 'Irish Grover';
 }
 .items{
-    margin-left: 20px;
     width: 80vw;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 20px;
+    padding-left: 20px;
 }
 .item{
-    background-color: gray;
+    background-color: #e6c69b;
     padding-bottom: 10px ;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -50,9 +50,9 @@ h1{
 #add,#sub{
     width: 30px;
     height: 30px;
-    background-color: red;
+    background-color: #FD9D17;
     color: white;
     border-radius: 50%;
-    border: 1px solid red;
+    border: 1px solid #FD9D17;
     font-size: large;
 }

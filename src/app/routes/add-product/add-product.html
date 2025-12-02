@@ -18,8 +18,8 @@
           required
         />
       </div>
-      <div class="input-group">
-        <h5>category</h5>
+      <div class="input-group" style="display: flex; gap:20px; align-items: center;">
+        <h5>category:</h5>
         <select
           id="category"
           formControlName="category"
@@ -51,8 +51,8 @@
 
       </div>
 
-      <div class="input-group" *ngFor="let f of [].constructor(n);let i=index">
-        <h5>Ingredient {{i+1}}:</h5>
+      <div class="input-group" *ngFor="let f of [].constructor(n);let i=index" style="display: flex; justify-content: space-between; align-items: center;" >
+        <h5>Ingredient {{i+1}}: &nbsp;</h5>
 
         <select class="typeofIngredient">
           <option *ngFor="let s of  stock" [value]="s._id" >  {{s.name}} </option>

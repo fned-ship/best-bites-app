@@ -55,8 +55,8 @@ export class AddProduct implements OnInit {
       else{
         l.push(i.stock)
       }
-      if (i.quantity==0){
-        alert("ingredient quantity cannot be null")
+      if (i.quantity<=0){
+        alert("ingredient quantity cannot be null or negatif")
         return false;
       }
       
@@ -74,7 +74,7 @@ export class AddProduct implements OnInit {
     }}
 
   async onSubmit() {
-      if (!this.productForm.valid) {alert("forum incompelete");
+      if (!this.productForm.valid || this.n<1) {alert("forum incompelete");
         return;}
       if (!this.imageFile) {
       this.imageName = 'Please upload an image';
@@ -105,13 +105,5 @@ export class AddProduct implements OnInit {
         console.error('Error:', response.error);
       }
     });
-    // this.stockService.addStock('69233c93b1886a1c99e798cc', this.stockForm.value ).subscribe(response => {
-    //   if (response.status === 201) {
-    //     console.log('Stock added:', response.data);
-    //   } else {
-    //     console.error('Error:', response.error);
-    //   }
-    // });
     }
   }
-//}

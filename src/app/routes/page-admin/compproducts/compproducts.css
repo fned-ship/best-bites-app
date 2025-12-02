@@ -1,0 +1,106 @@
+main{
+    padding-left : 20px ;
+    padding-top: 20px;
+}
+
+#head{
+    padding-bottom: 20px;
+    padding-left: 20px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+input,select{
+    height: 40px;
+    width: 30vw;
+    border-radius: 5px;
+    background-color: rgb(45, 45, 62);
+    color: white;
+    padding-left: 30px;
+}
+select{
+    width: 10vw;
+}
+#searchicon{
+    position: absolute;
+    left: 25px;
+}
+
+.items{
+    width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    padding-left: 20px;
+}
+.item{
+    background-color: #9a9896;
+    padding-bottom: 10px ;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.item>h3{
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-top: -4px;
+    padding-left: 10px;
+}
+.item>img{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.item:hover>img{
+    transition: width 1s,height 1s;
+    width: 220px;
+    height: 220px;
+}
+.item>#name{
+    font-size: 20px;
+    margin-top: -20px;
+}
+.item>div{
+    margin-left: 10px;
+    margin-right: 10px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#delete,#edit{
+    width: 70px;
+    height: 30px;
+    background-color: #2d5535;
+    color: white;
+    border-radius: 10px;
+    border: #17fda5;
+    font-size: large;
+}
+#delete{
+    background-color: rgb(91, 1, 1);
+}
+
+#addprod{
+    width: 150px;
+    height: 40px;
+    background-color: #9a9896;
+    color: black;
+    border-radius: 10px;
+    border: none;
+    font-size: large;
+}
+#addprod:hover{
+    background-color: black;
+    color: white;
+}
+.add,.adding{
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+td{
+    margin-right: 20px ;
+}

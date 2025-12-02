@@ -1,0 +1,42 @@
+main{
+    padding-top: 30px;
+}
+
+table{
+    font-family: Arial;
+    text-align: left;
+    table-layout: fixed;
+    word-wrap: break-word;
+    padding-bottom: 30px;
+}
+th{
+    width: 20vw;
+    font-size: 26px;
+    padding-left: 20px;
+    font-family: Garamond;
+    border-right: 3px solid transparent;
+    background-color: black;
+    color: white;
+}
+td{
+    width: 20vw;
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+#Addingredient{
+    width: 150px;
+    height: 40px;
+    background-color: #9a9896;
+    color: black;
+    border-radius: 10px;
+    border: none;
+    font-size: large;
+}
+#Addingredient:hover{
+    background-color: black;
+    color: white;
+}
+button,input{
+    margin-left: 20px;
+}

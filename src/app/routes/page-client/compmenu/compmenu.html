@@ -1,10 +1,11 @@
 <main>
-    <h1>Nos Pizza:</h1>
+    <div *ngFor="let cat of ['pizza', 'burger', 'taco','salad','dessert', 'drink']">
+    <h1>Nos {{cat}}:</h1>
     <div class="items">
-        <div *ngFor="let prod of products" class="item">
+        <div *ngFor="let prod of sort(cat)" class="item" >
             <img [src]="serverUrl+prod.image" height="200px" width="200px"/>
             <h3 id="name">{{prod.name}}</h3>
-            <h3>{{prod.price}}</h3>
+            <h3>{{prod.price}} Dt</h3>
             <h3>Rating: {{prod.rating.average}} &starf; ( {{prod.rating.count}} reviews)</h3>
             <div>
                 <button id="sub" (click)="remove(prod._id, prod.ingredients)">-</button>
@@ -12,5 +13,6 @@
                 <button id="add" (click)="add( prod )">+</button>
             </div>
         </div>
+    </div>
     </div>
 </main>

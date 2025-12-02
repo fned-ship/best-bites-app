@@ -2,7 +2,7 @@
     <header>
         <div>
         <h1>Best Bites</h1>
-        <img src="pics/burger.png" height="87px" width="87px"/>
+        <img src="pics/burger.png" height="60px" width="60px"/>
     </div>
         <h2>Best flavor, in every Bite</h2>
     </header>
@@ -17,11 +17,12 @@
             <h2>Panier</h2>
             </div>
             <div>
-            <img src="pics/history.png" height="70px" width="70px" (click)="lastbtn=3"/>
-            <h2>history</h2>
+            <img src="pics/clientIcon.png" height="70px" width="70px" (click)="lastbtn=3"/>
+            <h2>Profile</h2>
             </div>
         </div>
         <compmenu *ngIf="lastbtn==1"></compmenu>
         <comppanier *ngIf="lastbtn==2"></comppanier>
+        <comphistorique *ngIf="lastbtn==3"></comphistorique>
     </div>
 </main>

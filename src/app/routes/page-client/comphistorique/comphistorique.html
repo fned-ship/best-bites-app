@@ -1,0 +1,48 @@
+
+<main>
+
+  <div style="display: flex; gap: 20px; margin-top: 20px ;">
+    <img [src]="serverUrl+'/imagesProfile/'+curr.imageSrc" width="90px" height="90px" style="border-radius: 50%;">
+    <h2>{{curr.firstName}} {{curr.lastName}}</h2>
+  </div>
+
+<h1>Pending Orders</h1>
+<div id="pendingorder" >
+  <div style=" width: 60vw;display: flex; justify-content: space-between;">
+  <h2 style="color: rgb(182, 36, 36);">Order N°4h4h4h44h44g</h2>
+  <h3>Status: Out for delivery</h3>
+  <!-- <button id="chatbtn">Open Chat</button> -->
+  </div>
+  <div style="display: flex; gap: 20px; align-items: center;">
+  <h2>Items:</h2>
+  <h3 style="color: gray;">tacos x 3, pizza x 2</h3>
+  </div>
+</div>
+<h2>Rate these Items</h2>
+
+<div *ngFor="let prod of ['burger','tacos','pizza']">
+  <div class="rate" style="display: flex; gap:20px">
+    <h3>{{prod}}: </h3>
+    <button (click)="color(1,prod)" id="{{prod}}star1">&starf;</button>
+    <button  (click)="color(2,prod)" id="{{prod}}star2">&starf;</button>
+    <button  (click)="color(3,prod)" id="{{prod}}star3">&starf;</button>
+    <button (click)="color(4,prod)" id="{{prod}}star4">&starf;</button>
+    <button  (click)="color(5,prod)" id="{{prod}}star5">&starf;</button>
+
+  </div>
+
+</div>
+
+<button id="confirmation">Confirm Arrival</button>
+
+
+<h1 style="margin-top: 100px;">Past Orders</h1>
+<div id="pastorder" >
+  <h2 style="color: rgb(78, 73, 73);">On: Sun sep 2024</h2>
+  <h2 style="color: rgb(182, 36, 36);">Order N°4h4h4h44h44g</h2>
+  <div style="display: flex; gap: 20px; align-items: center;">
+  <h2>Items:</h2>
+  <h3 style="color: gray;">tacos x 3, pizza x 2</h3>
+  </div>
+</div>
+</main>

@@ -1,0 +1,62 @@
+main{
+    width: 100vw;
+    height: 100vh;
+}
+div{
+    display: flex;
+    align-items: center
+}
+header{
+    background-color: black;
+    color: white;
+    font-family: "Ms Madi";
+    font-size: 25px;
+    height: 100px;
+    position: relative;
+}
+
+
+header>h2{
+    position: absolute;
+    right: 50px;
+}
+
+header>div{
+    gap: 30px;
+    position: absolute;
+    left: 30px;
+}
+header>div>h1{
+    font-family: "Creepster";
+    font-size: 35px;
+}
+header>div>h3{
+    align-items: center;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 35px;
+}
+#sidebar{
+    width: 10vw;
+    min-height: calc(100vh - 100px);
+    flex-direction: column;
+    align-items: center;
+    background-color:#9c9c9b ;
+    padding-top: 20px;
+    gap: 60px;
+    align-self: stretch;
+}
+#sidebar>div{
+    flex-direction: column;
+    max-width: fit-content;
+}
+#sidebar>div>img{
+    transition: width 1s;
+}
+
+#sidebar>div:hover>img{
+    width: 90px;
+    height: 90px;
+}
+#rest{
+    align-items: baseline;
+}

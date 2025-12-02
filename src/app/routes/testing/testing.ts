@@ -7,10 +7,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { throwIfEmpty } from 'rxjs';
+import { AdminDashboard } from '../../components/admin-dashboard/admin-dashboard';
+import { ChatBox } from '../../components/chat-box/chat-box';
 
 @Component({
   selector: 'app-testing',
-  imports: [CommonModule,RouterModule,ReactiveFormsModule],
+  imports: [CommonModule,RouterModule,ReactiveFormsModule,AdminDashboard,ChatBox],
   templateUrl: './testing.html',
   styleUrl: './testing.css',
 })
@@ -36,7 +38,7 @@ export class Testing implements OnInit {
     // this.orderService.placeOrder(
     //   '69233c93b1886a1c99e798cc',
     //   [
-    //     { productId: '69233ff0b1886a1c99e798e8', quantity: 1, specialInstructions: 'No onions' }
+    //     { productId: '69235791acdb6c6a6243c686', quantity: 14, specialInstructions: 'No onions' }
     //   ],
     //   '123 Main St, City',
     //   'Ring doorbell'
@@ -88,17 +90,17 @@ export class Testing implements OnInit {
     // });
 
     //ex7
-    this.productService.addProduct('69233c93b1886a1c99e798cc',{
-      name: "Cheese Burger",
-  description: "classic cheese burger",
-  category: 'burger',
-  price: 10.000 ,
-  isAvailable:true,
-  ingredients:[{stock:'69257e6670f6df3462f64c60',quantity:1}]
-    }
+  //   this.productService.addProduct('69233c93b1886a1c99e798cc',{
+  //     name: "Cheese Burger",
+  // description: "classic cheese burger",
+  // category: 'burger',
+  // price: 10.000 ,
+  // isAvailable:true,
+  // ingredients:[{stock:'69257e6670f6df3462f64c60',quantity:1}]
+  //   }
 
-    )
+  //   )
     
 
-  }
-}
+  // }
+  }}

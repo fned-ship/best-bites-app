@@ -1,0 +1,28 @@
+<main>
+    <header>
+        <div>
+        <h1>Best Bites</h1>
+        <h3>Admin Space</h3>
+    </div>
+        <h2>Best flavor, in every Bite</h2>
+    </header>
+    <div id="rest">
+        <div id="sidebar">
+            <div>
+            <img src="pics/menu.png" height="70px" width="70px" (click)="lastbtn=1"/>
+            <h2>Products</h2>
+            </div>
+            <div>
+            <img src="pics/warehouse.png" height="70px" width="70px" (click)="lastbtn=2"/>
+            <h2>Stock</h2>
+            </div>
+            <div>
+            <img src="pics/dashboard.png" height="70px" width="70px" (click)="lastbtn=3"/>
+            <h2>Dashboard</h2>
+            </div>
+        </div>
+        <compproducts *ngIf="lastbtn==1"></compproducts>
+        <compstock *ngIf="lastbtn==2"></compstock>
+        
+    </div>
+</main>

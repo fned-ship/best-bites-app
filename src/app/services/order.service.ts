@@ -93,11 +93,9 @@ export class OrderService {
    */
   updateOrderStatus(
     orderId: string,
-    adminId: string,
     status: string
   ): Observable<ApiResponse<any>> {
     return this.http.patch<any>(`${this.apiUrl}/orders/${orderId}/status`, {
-      adminId,
       status
     }).pipe(
       map(response => ({
@@ -137,8 +135,8 @@ export class OrderService {
    * @param status - Order status to filter by
    * @returns Observable with standardized response containing filtered orders
    */
-  getOrdersByStatus(adminId: string, status: string): Observable<ApiResponse<Order[]>> {
-    return this.http.get<any>(`${this.apiUrl}/orders?adminId=${adminId}&status=${status}`).pipe(
+  getOrdersByStatus(status: string): Observable<ApiResponse<Order[]>> {
+    return this.http.get<any>(`${this.apiUrl}/orders?status=${status}`).pipe(
       map(response => ({
         status: 200,
         data: response.orders,

@@ -1,4 +1,6 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Lakki+Reddy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Opti&display=swap');
 :root{
   --primary-color:#48003f; /*4d1108*/
   --third-color:#78266d; /*4d1108*/
@@ -37,6 +39,27 @@ code {
     monospace;
 }
 
+.kaisei-opti-regular {
+  font-family: "Kaisei Opti", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.knewave-regular {
+  font-family: "Knewave", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.lakki-reddy-regular {
+  font-family: "Lakki Reddy", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 
 .flex-column-start{
   display: flex;
@@ -61,6 +84,12 @@ code {
 .flex-row{
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap:10px;
+}
+.flex-row-space-between{
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   gap:10px;
 }

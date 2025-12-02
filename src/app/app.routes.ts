@@ -8,6 +8,9 @@ import { PageClient } from './routes/page-client/page-client';
 import { Testing } from './routes/testing/testing';
 import { AddStock } from './routes/add-stock/add-stock';
 import { AddProduct } from './routes/add-product/add-product';
+import { Chef } from './routes/chef/chef';
+import { Deliverer } from './routes/deliverer/deliverer';
+import { PageAdmin } from './routes/page-admin/page-admin';
 
 export const routes: Routes = [
   { path: 'signup', component: Signup },
@@ -19,5 +22,8 @@ export const routes: Routes = [
   { path: 'test', component: Testing },
   { path: 'addstock', component: AddStock },
   { path: 'addproduct', component: AddProduct },
+  { path: 'deliverer', component: Deliverer },
+  { path: 'chef',component:Chef},
+  { path: 'admin',component:PageAdmin},
   { path: '**', redirectTo: 'login' }
 ];
