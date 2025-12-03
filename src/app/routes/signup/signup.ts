@@ -20,7 +20,6 @@ export class Signup implements OnInit {
   imageName = '';
   imageFile: File | null = null;
   ImageNameColor = 'green';
-  country = 'us';
   emailErrMsg = '';
   pswdErrMsg = '';
   headerMsg = 'Welcome';
@@ -38,23 +37,10 @@ export class Signup implements OnInit {
       password: ['', Validators.required],
       address: ['', Validators.required],
       number: ['', Validators.required],
-      role: ['client'], // ✅ replaced user:"client" with role:"employee"
+      role: ['client'], 
       activated: [false]
     });
 
-    this.fetchCountry();
-  }
-
-  async fetchCountry() {
-    try {
-      const ipResp: any = await this.http.get('https://api.ipify.org?format=json').toPromise();
-      const geoResp: any = await this.http.get(`http://www.geoplugin.net/json.gp?ip=${ipResp.ip}`).toPromise();
-      if (geoResp && geoResp.geoplugin_countryCode) {
-        this.country = geoResp.geoplugin_countryCode.toLowerCase();
-      }
-    } catch (err) {
-      console.error('Error fetching country:', err);
-    }
   }
 
   togglePassword() {

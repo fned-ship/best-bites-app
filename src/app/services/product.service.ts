@@ -103,11 +103,28 @@ export class ProductService {
    * @param updateData - Updated product details
    * @returns Observable with standardized response
    */
-  updateProduct(productId: string, adminId: string, updateData: Partial<Product>): Observable<ApiResponse<Product>> {
-    return this.http.put<any>(`${this.apiUrl}/products/${productId}`, {
-      adminId,
-      ...updateData
-    }).pipe(
+  updateProduct(productId: string, adminId: string, updateData: Partial<Product>, image?: File): Observable<ApiResponse<Product>> {
+
+    const formData = new FormData();
+
+    formData.append('adminId', adminId);
+
+    Object.entries(updateData).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) {
+        if (key === 'ingredients') {
+          formData.append('ingredients', JSON.stringify(value));
+        } else {
+          formData.append(key, value as any);
+        }
+      }
+    });
+
+    // Append image if provided
+    if (image) {
+      formData.append('image', image);
+    }
+
+    return this.http.put<any>(`${this.apiUrl}/products/${productId}`, formData).pipe(
       map(response => ({
         status: 200,
         data: response.product,
@@ -119,6 +136,7 @@ export class ProductService {
       }))
     );
   }
+
 
   /**
    * Delete a product (Admin only)
