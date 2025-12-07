@@ -65,9 +65,9 @@ export class Testing implements OnInit {
 
     // Example 2: Place an order
     // this.orderService.placeOrder(
-    //   '69233c93b1886a1c99e798cc',
+    //   '692ed4e06f3fb596472b5744',
     //   [
-    //     { productId: '69235791acdb6c6a6243c686', quantity: 14, specialInstructions: 'No onions' }
+    //     { productId: '6926fd6a3f497b0c76977acb', quantity: 4, specialInstructions: 'No onions' }
     //   ],
     //   '123 Main St, City',
     //   'Ring doorbell'
@@ -109,7 +109,7 @@ export class Testing implements OnInit {
     // this.productService.updateProduct(
     //   '69233ff0b1886a1c99e798e8',
     //   '69233c93b1886a1c99e798cc',
-    //   { price: 15.99, isAvailable: true }
+    //   { price: 16.99, isAvailable: true , ingredients : [{stock:"69233d1ab1886a1c99e798d0",quantity:0.3},{stock:"69233d36b1886a1c99e798d8",quantity:0.2}] }
     // ).subscribe(response => {
     //   if (response.status === 200) {
     //     console.log('Product updated:', response.data);

@@ -163,6 +163,7 @@ export class AdminDashboard implements OnInit {
 
       if (response.status === 200 && response.data) {
         const dailyIncome = response.data.dailyIncome;
+        // console.log(dailyIncome)
         
 
         const labels = dailyIncome.map((day: any) => {
@@ -185,6 +186,8 @@ export class AdminDashboard implements OnInit {
             }
           ]
         };
+
+        // console.log(this.dailyIncomeChartData)
       } else {
         this.errorDailyIncome = response.error || 'Failed to load daily income';
       }
@@ -204,7 +207,6 @@ export class AdminDashboard implements OnInit {
       this.loadingProductIncome = false;
 
       if (response.status === 200 && response.data) {
-        // console.log(response.data)
         this.totalIncome = response.data.totalIncome;
         const products = response.data.productBreakdown;
         
@@ -234,6 +236,7 @@ export class AdminDashboard implements OnInit {
             }
           ]
         };
+
       } else {
         this.errorProductIncome = response.error || 'Failed to load product income';
       }

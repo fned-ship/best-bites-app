@@ -7,42 +7,52 @@
   </div>
 
 <h1>Pending Orders</h1>
-<div id="pendingorder" >
+<h2 *ngIf="pending.length==0" style="color:gray">You have no pending orders</h2>
+<div id="pendingorder" *ngFor="let order of pending;index as i" >
   <div style=" width: 60vw;display: flex; justify-content: space-between;">
-  <h2 style="color: rgb(182, 36, 36);">Order N°4h4h4h44h44g</h2>
-  <h3>Status: Out for delivery</h3>
-  <!-- <button id="chatbtn">Open Chat</button> -->
+  <h2 style="color: rgb(182, 36, 36);">Order N°{{order._id}}</h2>
+  <h3>Status: {{order.status}}</h3>
   </div>
+  
+  
   <div style="display: flex; gap: 20px; align-items: center;">
   <h2>Items:</h2>
-  <h3 style="color: gray;">tacos x 3, pizza x 2</h3>
+  <h3 style="color: gray;">{{stringify(order.items)}}</h3>
   </div>
-</div>
+  <h2 *ngIf="order.status=='out_for_delivery'" style="color: Navy" >Chat with deliverer</h2>
+  <app-chat-box *ngIf="order.status=='out_for_delivery'" [chatId]="order.chatId" [userId]="curr._id"></app-chat-box>
+
+
+<div *ngIf="order.status=='delivered'">
 <h2>Rate these Items</h2>
 
-<div *ngFor="let prod of ['burger','tacos','pizza']">
-  <div class="rate" style="display: flex; gap:20px">
-    <h3>{{prod}}: </h3>
-    <button (click)="color(1,prod)" id="{{prod}}star1">&starf;</button>
-    <button  (click)="color(2,prod)" id="{{prod}}star2">&starf;</button>
-    <button  (click)="color(3,prod)" id="{{prod}}star3">&starf;</button>
-    <button (click)="color(4,prod)" id="{{prod}}star4">&starf;</button>
-    <button  (click)="color(5,prod)" id="{{prod}}star5">&starf;</button>
+<div >
+  <div class="rate" style="display: flex; gap:20px" *ngFor="let prod of order.items">
+    <h3>{{prod.product.name}}: </h3>
+    <button (click)="color(1,prod.product._id)" id="{{prod.product._id}}star1">&starf;</button>
+    <button  (click)="color(2,prod.product._id)" id="{{prod.product._id}}star2">&starf;</button>
+    <button  (click)="color(3,prod.product._id)" id="{{prod.product._id}}star3">&starf;</button>
+    <button (click)="color(4,prod.product._id)" id="{{prod.product._id}}star4">&starf;</button>
+    <button  (click)="color(5,prod.product._id)" id="{{prod.product._id}}star5">&starf;</button>
 
   </div>
 
 </div>
 
-<button id="confirmation">Confirm Arrival</button>
+<button id="confirmation" (click)="confirm(i)">Confirm Arrival</button>
+</div>
+</div>
+
 
 
 <h1 style="margin-top: 100px;">Past Orders</h1>
-<div id="pastorder" >
-  <h2 style="color: rgb(78, 73, 73);">On: Sun sep 2024</h2>
-  <h2 style="color: rgb(182, 36, 36);">Order N°4h4h4h44h44g</h2>
+<h2 *ngIf="past.length==0" style="color:gray">Your past orders will appear here</h2>
+<div id="pastorder" *ngFor="let order of past">
+  <h2 style="color: rgb(78, 73, 73);">On: {{order.createdAt}}</h2>
+  <h2 style="color: rgb(182, 36, 36);">Order N°{{order._id}}</h2>
   <div style="display: flex; gap: 20px; align-items: center;">
   <h2>Items:</h2>
-  <h3 style="color: gray;">tacos x 3, pizza x 2</h3>
+  <h3 style="color: gray;">{{stringify(order.items)}}</h3>
   </div>
 </div>
 </main>

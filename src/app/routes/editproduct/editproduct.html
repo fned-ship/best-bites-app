@@ -1,5 +1,6 @@
-<h1>Add product</h1>
+
 <form [formGroup]="productForm" (ngSubmit)="onSubmit()" id="form">
+  <h1>Editing product Id:{{prod._id}}</h1>
       <div class="input-group">
         <input
           type="text"
@@ -51,10 +52,10 @@
 
       </div>
 
-      <div class="input-group" *ngFor="let f of [].constructor(n);let i=index" style="display: flex; justify-content: space-between; align-items: center;" >
+      <div class="input-group" *ngFor="let f of [].constructor(n);index as i" style="display: flex; justify-content: space-between; align-items: center;" >
         <h5>Ingredient {{i+1}}: &nbsp;</h5>
 
-        <select class="typeofIngredient">
+        <select class="typeofIngredient" [(ngModel)]="ingredients[i]" [ngModelOptions]="{standalone: true}">
           <option *ngFor="let s of  stock" [value]="s._id" >  {{s.name}} </option>
         </select>
          <input
@@ -63,6 +64,7 @@
           min="0"
           id="quantity"
           placeholder= "quantity"
+          [(ngModel)]="quantity[i]" [ngModelOptions]="{standalone: true}"
           required
           
         />
@@ -71,7 +73,7 @@
       <br/>
       <div class="input-file">
         <label for="inputTag">
-          Select picture <br />
+          Change picture <br />
           <img src="svg/camera.svg" alt="camera" />
           <input
             id="inputTag"
@@ -88,5 +90,7 @@
           >
         </label>
       </div>
-      <button type="submit" >Add Product</button>
+      <button type="submit" >Edit Product</button>
+      <button type="button" id="back" (click)="back()">Back</button>
 </form>
+

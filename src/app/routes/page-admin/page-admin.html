@@ -23,6 +23,6 @@
         </div>
         <compproducts *ngIf="lastbtn==1"></compproducts>
         <compstock *ngIf="lastbtn==2"></compstock>
-        
+        <app-admin-dashboard [adminId]="curr._id" *ngIf="lastbtn==3"></app-admin-dashboard>
     </div>
 </main>

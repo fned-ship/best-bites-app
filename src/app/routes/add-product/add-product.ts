@@ -3,6 +3,7 @@ import { ReactiveFormsModule ,FormBuilder, FormGroup, Validators, FormsModule } 
 import { ProductService } from '../../services/product.service';
 import { StockService } from '../../services/stock.service';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-add-product',
@@ -21,13 +22,15 @@ export class AddProduct implements OnInit {
 
 
   productForm!: FormGroup;
-   constructor(private stockService: StockService, private productServive:ProductService, private fb: FormBuilder) {}
+   constructor(private stockService: StockService, private productServive:ProductService, private fb: FormBuilder,private authService:AuthService) {}
    n:number=1;
    ingredients:any[]=[];
    stock:any=[];
+   curr:any;
 
 
   ngOnInit(): void {
+    this.curr=this.authService.checkAndRedirect("admin")
     this.productForm = this.fb.group({
       name: ["",Validators.required],
   description: ["",Validators.required],
@@ -98,11 +101,11 @@ export class AddProduct implements OnInit {
       const data:any=this.productForm.value;
       data['ingredients']=this.ingredients;
       console.log(data)
-      this.productServive.addProduct('69233c93b1886a1c99e798cc',data,this.imageFile).subscribe(response => {
+      this.productServive.addProduct(this.curr._id,data,this.imageFile).subscribe(response => {
       if (response.status === 201) {
         console.log('Product added:', response.data);
       } else {
-        console.error('Error:', response.error);
+        console.error('Error: ', response.error);
       }
     });
     }

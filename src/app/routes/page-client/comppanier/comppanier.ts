@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Compmenu } from '../compmenu/compmenu';
 import { CommonModule } from '@angular/common';
 import { FormsModule,ReactiveFormsModule ,FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CookieService } from 'ngx-cookie-service';
+import { OrderService } from '../../../services/order.service';
 import { environment } from '../../../../environments/environment';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'comppanier',
@@ -26,9 +27,9 @@ export class Comppanier implements OnInit {
 
 
 
-  constructor( private fb: FormBuilder,private cookieService:CookieService) {}
+  constructor( private fb: FormBuilder,private orderService:OrderService,private authService:AuthService) {}
   ngOnInit(): void {
-    this.curr=JSON.parse(this.cookieService.get("user"))
+    this.curr=this.authService.checkAndRedirect("client");
     this.infoForm = this.fb.group({
       address: [this.curr.address, Validators.required],
       card:[],
@@ -63,11 +64,32 @@ export class Comppanier implements OnInit {
         }
         
       }
+
+      let order:any=[]
+      for (let key in Compmenu.panier){
+        order.push({productId:key,quantity:Compmenu.panier[key][1]})
+      }
+      for(let i=0;i<order.length;i++ ){
+        if(this.specialInstructions[i]){
+          order[i].specialInstructions=this.specialInstructions[i]
+        }
+
+      }
+      console.log(order)
+      this.orderService.placeOrder(
+      this.curr._id,order,data.address,this.generalcomment).subscribe(response => {
+      if (response.status === 201) {
+        console.log('Order placed:', response.data);
+      } else {
+        console.error('Error:', response.error);
+      }
+    });
+
+
       Compmenu.panier=[]
-        this.panier=[]
-        this.total=0
-        console.log(this.specialInstructions)
-        this.msg="Order Confirmed"
+      this.panier=[]
+      this.total=0
+      this.msg="Order Confirmed"
     }
   }
   

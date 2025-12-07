@@ -4,19 +4,22 @@
     <th>name</th>
     <th>Quantité</th>
     <th>Minimum Threshold</th>
-    <button id="Addingredient">Add ingredient</button>
+    <button id="Addingredient" (click)="addingredient()">Add ingredient</button>
   </tr>
 </table>
 <table>
-  <tr *ngFor="let p of panier">
+  <tr *ngFor="let p of stock">
     <td >
       {{p.name}}
     </td>
-    <td >
-      {{p.quantity}}
+    <td *ngIf="p.quantity<p.minThreshold" style="color:red" >
+      {{p.quantity}}{{p.unit}}
+    </td>
+    <td *ngIf="p.quantity>=p.minThreshold" style="color:green" >
+      {{p.quantity}}{{p.unit}}
     </td>
     <td >
-      {{p.minThreshold}}
+      {{p.minThreshold}}{{p.unit}}
     </td>
     <button id="add{{p._id}}" class="add" (click)="add(p)" >Add</button>
     <div id="adding{{p._id}}" class="adding" style="display: none;" >

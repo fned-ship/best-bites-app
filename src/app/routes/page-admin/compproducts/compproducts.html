@@ -1,4 +1,4 @@
-<main>
+<main *ngIf="!editing">
     <div id="head">
     <input [(ngModel)]="searchterm" type="text" placeholder="Search for product by name...">
     <img src="images/SearchIcon.png" width="20px" height="20px" id="searchicon">
@@ -7,10 +7,10 @@
         <option value="">Any</option>
         <option *ngFor="let cat of  ['pizza', 'burger', 'dessert', 'drink', 'taco','salad']" [value]="cat" >  {{cat}}</option>
     </select>
-    <button id="addprod">Add Product</button>
+    <button id="addprod" (click)="add()">Add Product</button>
     </div>
     <div class="items">
-        <div *ngFor="let prod of filter();index as i" class="item" >
+        <div *ngFor="let prod of filter()" class="item" >
             <img [src]="serverUrl+prod.image" height="200px" width="200px"/>
             <h3 id="name">{{prod.name}}</h3>
             <h3>{{prod.price}} Dt</h3>
@@ -23,3 +23,4 @@
 
     </div>
 </main>
+<editproduct [prod]="prodselected" *ngIf="editing" (dataEmitted)="handle($event)"></editproduct>
